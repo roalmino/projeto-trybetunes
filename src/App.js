@@ -4,8 +4,9 @@ import Favorites from "./pages/Favorites";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
-import ProfileEdit from "./pages/ProfileEdit"
+import ProfileEdit from "./pages/ProfileEdit";
 import Search from "./pages/Search";
+import Header from "./components/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends React.Component {
