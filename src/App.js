@@ -16,7 +16,7 @@ class App extends React.Component {
         <p>TrybeTuness</p>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/album" component={Album} />
+            <Route exact path="/album/:id" component={Album} />
             <Route exact path="/favorites" component={Favorites} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/profile" component={Profile} />
