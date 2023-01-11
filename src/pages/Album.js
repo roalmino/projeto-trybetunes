@@ -25,7 +25,6 @@ class Album extends React.Component {
 
   render() {
     const { album, loading } = this.state;
-    console.log(album[0]);
     return (
       <>
         <Header />
