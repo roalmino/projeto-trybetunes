@@ -1,10 +1,11 @@
-import React from "react";
-import { createUser } from "../services/userAPI";
-import Loading from "./Loading";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { createUser } from '../services/userAPI';
+import Loading from './Loading';
 
 class Login extends React.Component {
   state = {
-    name: "",
+    name: '',
     loading: false,
   };
 
@@ -13,7 +14,7 @@ class Login extends React.Component {
     const { history } = this.props;
     this.setState({ loading: true }, async () => {
       await createUser({ name });
-      history.push("/search");
+      history.push('/search');
     });
   };
 
@@ -33,20 +34,21 @@ class Login extends React.Component {
       <div data-testid="page-login">
         Login
         <form>
-          <label>
+          <label htmlFor="input-login">
             Nome:
             <input
               type="text"
               name="name"
               data-testid="login-name-input"
-              onChange={this.handleChange}
+              onChange={ this.handleChange }
+              id="input-login"
             />
           </label>
           <button
             type="button"
             data-testid="login-submit-button"
-            disabled={!isDisable}
-            onClick={() => this.montagem()}
+            disabled={ !isDisable }
+            onClick={ () => this.montagem() }
           >
             Entrar
           </button>
@@ -55,5 +57,11 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.string,
+  }),
+}.isRequired;
 
 export default Login;

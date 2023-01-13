@@ -1,12 +1,12 @@
-import React from "react";
-import { getUser } from "../services/userAPI";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { getUser } from '../services/userAPI';
 
 class Header extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "",
+      name: '',
       loading: true,
     };
 
@@ -31,21 +31,21 @@ class Header extends React.Component {
     const { name, loading } = this.state;
     return (
       <header data-testid="header-component">
-        <p data-testid="header-user-name">{loading ? "Carregando..." : name}</p>
+        <p data-testid="header-user-name">{loading ? 'Carregando...' : name}</p>
         <nav>
           <ul>
             <li>
-              <Link to={"/search"} data-testid="link-to-search">
+              <Link to="/search" data-testid="link-to-search">
                 Pesquisa
               </Link>
             </li>
             <li>
-              <Link to={"/favorites"} data-testid="link-to-favorites">
+              <Link to="/favorites" data-testid="link-to-favorites">
                 Favoritos
               </Link>
             </li>
             <li>
-              <Link to={"/profile"} data-testid="link-to-profile">
+              <Link to="/profile" data-testid="link-to-profile">
                 Perfil
               </Link>
             </li>

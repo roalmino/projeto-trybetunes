@@ -1,7 +1,8 @@
-import React from "react";
-import Header from "../components/Header";
-import MusicCard from "../components/MusicCard";
-import getMusics from "../services/musicsAPI";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Header from '../components/Header';
+import MusicCard from '../components/MusicCard';
+import getMusics from '../services/musicsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -29,13 +30,14 @@ class Album extends React.Component {
       <>
         <Header />
         {loading ? (
-          "Carregando..."
+          'Carregando...'
         ) : (
           <div data-testid="page-album">
             <h1 data-testid="artist-name">{album[0].artistName}</h1>
             <h2 data-testid="album-name">{album[0].collectionName}</h2>
             {album.map((music, index) => {
-              if (index > 0) return <MusicCard music={music} />;
+              if (index > 0) return <MusicCard music={ music } />;
+              return '';
             })}
           </div>
         )}
@@ -43,5 +45,13 @@ class Album extends React.Component {
     );
   }
 }
+
+Album.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  }),
+}.isRequired;
 
 export default Album;
